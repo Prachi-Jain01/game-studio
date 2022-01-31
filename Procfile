@@ -1,1 +1,0 @@
-web: gunicorn <GameStudio>.wsgi --log-file -

@@ -1,1 +1,1 @@
-web: gunicorn game-studio.wsgi
+web: gunicorn GameStudio.wsgi

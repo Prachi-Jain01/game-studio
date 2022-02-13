@@ -1,1 +1,1 @@
-"web: gunicorn GameStudio.wsgi" 
+web: gunicorn GameStudio.wsgi

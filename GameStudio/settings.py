@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_*e(5u!5fa&@m)%^dddd*d%1p&ngqfd%*gl3rrs3e8d_z^@_a^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','.herokuapp.com']
 
@@ -130,10 +130,16 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL = '/images/'
 
-STATICFILES_DIRS=[
-    BASE_DIR / 'static'
-]
+# STATICFILES_DIRS=[
+#     BASE_DIR / 'static'
+# ]
 
+if DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+else:
+    STATICFILES_DIRS = [
+            os.path.join(BASE_DIR, 'static')
+       ]
 MEDIA_ROOT = BASE_DIR / 'static/images'
 
 
@@ -142,6 +148,6 @@ MEDIA_ROOT = BASE_DIR / 'static/images'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
